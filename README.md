@@ -34,3 +34,23 @@ human_readable_bytes_size(290000000000,5)
 human_readable_bytes_size(290000000000,5,"---")
 //"270.08354---GB"
 ```
+
+<hr/>
+
+if you want to put comma every 3 digits,
+making things more readable,
+use the following regular-expression-replace:
+
+```javascript
+bytes = String(bytes);
+bytes.replace(/(\d)(?=(\d{3})+$)/g, "$1,");
+```
+
+if you only want to add comma to the fraction part (after the `.`)
+use this instead:
+
+```javascript
+bytes = String(bytes).split(".");
+bytes[0] = bytes[0].replace(/(\d)(?=(\d{3})+$)/g, "$1,");
+bytes = bytes.join(".");
+```
