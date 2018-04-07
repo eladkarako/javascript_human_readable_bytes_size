@@ -42,8 +42,7 @@ making things more readable,
 use the following regular-expression-replace:
 
 ```javascript
-bytes = String(bytes);
-bytes.replace(/(\d)(?=(\d{3})+$)/g, "$1,");
+bytes = String(bytes).replace(/(\d)(?=(\d{3})+$)/g, "$1,");
 ```
 
 if you only want to add comma to the fraction part (after the `.`)
